@@ -38,14 +38,28 @@
             <section class="section-1">
                 <h3>失敗頁面</h3>
             </section>
-            <section class="section-2">
-                <form action="/" method="GET">
-                    <div>
-                        <h3>帳號、密碼輸入錯誤</h3>
-                    </div>
-                    <button id="btn">回首頁</button>
-                </form>
-            </section>
+            {% if message and name %}
+                <section class="section-2">
+                    <form action="/" method="GET">
+                
+                        <div>
+                            <h3>帳號已經被註冊</h3>
+                        </div>
+                        <button id="btn">回首頁</button>
+                    </form>
+                </section>
+            {% else %}
+                <section class="section-2">
+                    <form action="/" method="GET">
+                
+                        <div>
+                            <h3>帳號或密碼輸入錯誤</h3>
+                        </div>
+                        <button id="btn">回首頁</button>
+                    </form>
+                </section>
+            {% endif %}
+
         </div>
     </body>
 </html>
