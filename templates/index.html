@@ -4,31 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" >
     <title>My Website</title>
     <style>
-        body{
-            margin: 0;
-            padding: 0;
-        }
-        .section-1{
-            padding: 15px;
-            background-color: rgb(21, 21, 158);
-            text-align: center;
-            color: aliceblue;
-        }
-        .section-2{
-            width: 240px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .section-2 input,
-        .section-2 p {
-            display: inline-block;
-        }
-        .section-2 h3 {
-            margin: 15px 0 0 0;
-        }
     </style>
 </head>
 <body>
@@ -53,9 +31,9 @@
                 </div>
                 <button id="btn">註冊</button>
             </form>
-        <hr />
-        </section>
         
+        </section>
+        <hr />
         <section class="section-2">
             <h3>登入系統</h3>
             <form action="/signin" method="POST">

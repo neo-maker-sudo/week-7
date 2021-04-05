@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.section-1 {
+    padding: 15px;
+    background-color: rgb(21, 21, 158);
+    text-align: center;
+    color: aliceblue;
+}
+
+.section-2 {
+    margin-top: 10px;
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-2 input,
+.section-2 h3 {
+    display: inline-block;
+}
