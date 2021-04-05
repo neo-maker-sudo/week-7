@@ -1,4 +1,4 @@
-from flask import Flask, session, redirect, request, render_template, url_for, jsonify
+from flask import Flask, session, redirect, request, render_template, url_for, jsonify, abort
 from datetime import timedelta, datetime
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -13,9 +13,6 @@ app.config['PERMENENT_SESSION_LIFETIME'] = timedelta(days=1)
 # database
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://neo:neoneo@localhost:3306/website"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# cache
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 
 ## model for flask_sqlalchemy
 class User(db.Model):
@@ -112,6 +109,7 @@ def update():
             return jsonify({'ok': True})
     else:
         return jsonify({'error': True})
+
 
 if __name__ == '__main__':
     db.create_all()
