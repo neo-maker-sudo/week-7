@@ -12,10 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install
-      run: |
-        pip install flask
-        pip install flask-sqlalchemy
-        pip install pytest
+      run: 
+        pip install -r requirements.txt
     - name: Test
       run: 
         python -m pytest test.py -vv
