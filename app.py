@@ -11,7 +11,8 @@ app.config['SECRET_KEY'] = os.urandom(24)
 app.config['PERMENENT_SESSION_LIFETIME'] = timedelta(days=1)
 
 # database
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://neo:neoneo@localhost:3306/website"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
+#mysql+pymysql://neo:neoneo@localhost:3306/website
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 ## model for flask_sqlalchemy
@@ -60,8 +61,7 @@ def signin():
 @app.route('/signout', methods=['GET'])
 def signout():
     session['username'] = False
-    return redirect(url_for('index')), 302
-
+    return redirect(url_for('index'))
 
 @app.route('/member/')
 def member():
@@ -97,6 +97,8 @@ def update():
     query = User.query.filter_by(username=sesson_username).first()
     if newname == '':
         return jsonify({'error': 'empty value'})
+    elif query is None:
+        return jsonify({'error':'database error'})
     elif query.name == newname:
         return jsonify({'error':'same name error'})
     elif query and sesson_username:
@@ -109,6 +111,7 @@ def update():
             return jsonify({'ok': True})
     else:
         return jsonify({'error': True})
+
 
 
 if __name__ == '__main__':
