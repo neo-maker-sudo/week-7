@@ -16,4 +16,4 @@ jobs:
         pip install -r requirements.txt
     - name: Test
       run: 
-        python -m pytest test_.py -vv
+        python -m pytest test_api.py -vv
